@@ -10,10 +10,14 @@ import Account from './Account';
 
 function App() {
   const [events, setEvents] = useState([])
+  const [artists, setArtists] = useState([])
+  const [genres, setGenres] = useState([])
   const [user, setUser] = useState([])
-  console.log(user)
+  const [favoriteArtists, setFavoriteArtists] = useState([])
+  const [favoriteGenres, setFavoriteGenres] = useState([])
+  const [location, setLocation] = useState("")
 
-  const userId = 3
+  const userId = 1
 
   useEffect(() => {
   fetch("http://localhost:3000/events")
@@ -22,10 +26,31 @@ function App() {
   }, [])
 
   useEffect(() => {
+    fetch("http://localhost:3000/artists")
+    .then(response => response.json())
+    .then(setArtists)
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:3000/genres")
+    .then(response => response.json())
+    .then(setGenres)
+  }, [])
+
+  useEffect(() => {
       fetch(`http://localhost:3000/users/${userId}`)
       .then(response => response.json())
       .then(setUser)
       }, [userId])
+
+      useEffect(() => {
+        fetch(`http://localhost:3000/users/${userId}`)
+        .then(response => response.json())
+       
+        setFavoriteArtists(user.favorite_artists)
+        setFavoriteGenres(user.favorite_genres)
+        setLocation(user.location)
+        }, [userId, user])
 
   
   return (
@@ -46,7 +71,16 @@ function App() {
         <Login />
       </Route>
       <Route path="/account">
-        <Account user={user} />
+        <Account 
+          user={user} 
+          artists={artists} 
+          genres={genres}
+          favoriteArtists={favoriteArtists}
+          favoriteGenres={favoriteGenres}
+          setFavoriteArtists={setFavoriteArtists}
+          setFavoriteGenres={setFavoriteGenres}
+          location={location}
+          setLocation={setLocation} />
       </Route>
       <Route path="/">
 
