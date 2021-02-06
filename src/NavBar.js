@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 
-function NavBar() {
+function NavBar({setLoggedIn}) {
 
+    function handleLogout() {
+        setLoggedIn(false)
+    }
 
     return (
         <div>
             <Link to="/main">Events</Link>&nbsp;
             <Link to="/favorites">Favorites</Link>&nbsp;
-            <Link to="/account">Account</Link>&nbsp;
-            <Link to="/login">Login</Link>
+            <Link to="/profile">Profile</Link>&nbsp;
+            <Link onClick={handleLogout}>Logout</Link>
         </div>
     )
 }

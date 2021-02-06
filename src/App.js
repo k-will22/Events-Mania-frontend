@@ -6,7 +6,7 @@ import Main from './Main';
 import Show from './Show';
 import Favorite from './Favorite';
 import Login from './Login';
-import Account from './Account';
+import Profile from './Profile';
 
 function App() {
   const [events, setEvents] = useState([])
@@ -16,6 +16,7 @@ function App() {
   const [favoriteArtists, setFavoriteArtists] = useState([])
   const [favoriteGenres, setFavoriteGenres] = useState([])
   const [location, setLocation] = useState("")
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const userId = 1
 
@@ -56,22 +57,22 @@ function App() {
   return (
     <div className="App">
       <h1>EVENTS MANIA</h1>
-      <NavBar />
+      <Route path="/">
+      {loggedIn ? <NavBar setLoggedIn={setLoggedIn} /> : 
+      <Login setLoggedIn={setLoggedIn} />}
+      </Route>
       <Switch>
       <Route path="/main">
-        <Main events={events} />
+        {loggedIn ? <Main events={events} /> : <Redirect to="/" />}
       </Route>
       <Route path="/show">
-        <Show />
+        {loggedIn ? <Show /> : <Redirect to="/" />}
       </Route>
       <Route path="/favorites">
-        <Favorite />
+        {loggedIn ? <Favorite /> : <Redirect to="/" />}
       </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/account">
-        <Account 
+      <Route path="/profile">
+        {loggedIn ?<Profile 
           user={user} 
           artists={artists} 
           genres={genres}
@@ -79,11 +80,7 @@ function App() {
           favoriteGenres={favoriteGenres}
           setFavoriteArtists={setFavoriteArtists}
           setFavoriteGenres={setFavoriteGenres}
-          location={location}
-          setLocation={setLocation} />
-      </Route>
-      <Route path="/">
-
+          location={location} /> : <Redirect to="/" />}
       </Route>
       <Route path="*">
         <Redirect to="/" />

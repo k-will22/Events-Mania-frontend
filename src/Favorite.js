@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 
 function Favorite() {
     const [favs, setFavs] = useState([])
@@ -28,11 +29,17 @@ function Favorite() {
     const favList = favs.map(f => {
         return (
         <div key={f.id}>
-        <h1>{f.artist.name}</h1>
-        <h3>Tour: {f.event.tour}</h3>
-        <h3>Venue: {f.event.venue}</h3>
-        <h3>Date: {f.event.date}</h3>
+        <h2>{f.artist.name}</h2>
+        <h3>{f.event.tour}</h3>
+        <h4>Venue: {f.event.venue}</h4>
+        <h4>Date: {f.event.date}</h4>
+        <Link to={`/show/${f.event.id}`}>Event Page</Link>
+        <br></br>
+        <br></br>
         <button value={f.id} onClick={handleUnfavorite}>Unfavorite</button>
+        <br></br>
+        <br></br>
+        <hr style={{marginLeft: 500, marginRight: 500}} />
         </div>
         )
     })

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
-function Login() {
+function Login({setLoggedIn}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [location, setLocation] = useState("")
+    const [create, setCreate] = useState(false)
+    const history = useHistory()
 
     const newUser = {
         username: username,
@@ -25,16 +28,32 @@ function Login() {
             .then(data => {
                 console.log(data)
             })
-            setUsername("")
-            setPassword("")
-            setLocation("")      
+            setLoggedIn(true)
+            history.push("/main")
+    }
+
+    function handleLogin() {
+        setLoggedIn(true)
+        history.push("/main")
+    }
+
+    function handleCreate() {
+        setCreate(true)
     }
     
 
     return (
         <div>
         <h1>Login</h1>
-        <h1>Create New Account</h1>
+        <label>Username</label>&nbsp;
+        <input type="text"></input>&nbsp; &nbsp;
+        <label>Password</label>&nbsp;
+        <input type="password"></input>&nbsp;
+        <input type="submit" value="Login" onClick={handleLogin}></input>
+        <br></br>
+        <br></br>
+        {create ? <h1>Create New Account</h1> : null}
+        {create ?
         <form onSubmit={handleSubmit}>
             <label>Username</label>&nbsp;
             <input 
@@ -58,7 +77,7 @@ function Login() {
             <br></br>
             <br></br>
             <input type="submit"></input>
-        </form>
+        </form> : <button onClick={handleCreate}>Create New Account</button>}
         </div>
     )
 }

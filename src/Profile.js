@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFavoriteArtists, setFavoriteGenres, location, setLocation}) {
-    const [id, setId] = useState("")
-    const [username, setUsername] = useState("")
+function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFavoriteArtists, setFavoriteGenres, location, setLocation}) {
     const [favArtists, setFavArtists] = useState("")
     const [favGenres, setFavGenres] = useState("")
     const [newLocation, setNewLocation] = useState("")
@@ -14,11 +12,11 @@ function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFav
     }
     
     const fArtists = favoriteArtists.map(a => {
-       return <h3>{a.artist.name} <button value={a.id} onClick={handleRemoveArtist}>Remove</button></h3>
+       return <h3 key={a.id}>{a.artist.name} <button value={a.id} onClick={handleRemoveArtist}>Remove</button></h3>
     })
 
     const fGenres = favoriteGenres.map(g => {
-        return <h3>{g.genre.name} <button value={g.id} onClick={handleRemoveGenre}>Remove</button></h3>
+        return <h3 key={g.id}>{g.genre.name} <button value={g.id} onClick={handleRemoveGenre}>Remove</button></h3>
      })
 
     const newArtist = {
@@ -41,6 +39,10 @@ function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFav
 
     function handleNewArtist(event) {
         event.preventDefault()
+
+        if (newArtist.artist_id == 0) {
+            return null
+        }
         
         fetch("http://localhost:3000/favorite_artists", {
             method: "POST",
@@ -57,6 +59,10 @@ function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFav
 
     function handleNewGenre(event) {
         event.preventDefault()
+
+        if (newGenre.genre_id == 0) {
+            return null
+        }
         
         fetch("http://localhost:3000/favorite_genres", {
             method: "POST",
@@ -117,9 +123,9 @@ function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             setNewLocation("")
     }
 
-    const artistList = artists.map(a => <option value={a.id}>{a.name}</option>)
+    const artistList = artists.map(a => <option key={a.id} value={a.id}>{a.name}</option>)
 
-    const genreList = genres.map(g => <option value={g.id}>{g.name}</option>)
+    const genreList = genres.map(g => <option key={g.id} value={g.id}>{g.name}</option>)
 
         return (
             <div>
@@ -138,7 +144,7 @@ function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             {fArtists}
             <label>
                 <select onChange={handleSetArtist}>
-                    <option value="" >Choose Artist</option>
+                    <option value="0">Choose Artist</option>
                     {artistList}
                 </select>&nbsp;
                 <input type="submit" value="Add Artist" onClick={handleNewArtist}></input>
@@ -149,7 +155,7 @@ function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             {fGenres}
             <label>
                 <select onChange={handleSetGenre}>
-                    <option value="" >Choose Genre</option>
+                    <option value="0">Choose Genre</option>
                     {genreList}
                 </select>&nbsp;
                 <input type="submit" value="Add Genre" onClick={handleNewGenre}></input>
@@ -159,4 +165,4 @@ function Account({user, artists, genres, favoriteArtists, favoriteGenres, setFav
 
 }
 
-export default Account
+export default Profile
