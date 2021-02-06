@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
 
 function AddEvent({genres, events, setEvents}) {
     const [artist, setArtist] = useState("")
@@ -11,6 +12,7 @@ function AddEvent({genres, events, setEvents}) {
     const [date, setDate] = useState("")
     const [ticketPage, setTicketPage] = useState("")
     const [photo, setPhoto] = useState("")
+    const history = useHistory()
 
     const newArtist = {
         name: artist
@@ -100,6 +102,7 @@ function AddEvent({genres, events, setEvents}) {
                         })
                 })
         }
+                        history.push("/main")
     }
 
 

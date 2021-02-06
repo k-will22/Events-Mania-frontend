@@ -61,7 +61,7 @@ function Main({events, userId, location}) {
             <input 
                 onChange={handleSearch} 
                 type="text" 
-                autocomplete="off"></input>
+                autoComplete="off"></input>
             {eventList}
             </div>
       )
