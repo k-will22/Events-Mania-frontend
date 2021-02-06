@@ -7,6 +7,7 @@ import Show from './Show';
 import Favorite from './Favorite';
 import Login from './Login';
 import Profile from './Profile';
+import Recommended from './Recommended';
 
 function App() {
   const [events, setEvents] = useState([])
@@ -63,7 +64,7 @@ function App() {
       </Route>
       <Switch>
       <Route path="/main">
-        {loggedIn ? <Main events={events} /> : <Redirect to="/" />}
+        {loggedIn ? <Main events={events} userId={userId} /> : <Redirect to="/" />}
       </Route>
       <Route path="/show">
         {loggedIn ? <Show /> : <Redirect to="/" />}
@@ -80,7 +81,14 @@ function App() {
           favoriteGenres={favoriteGenres}
           setFavoriteArtists={setFavoriteArtists}
           setFavoriteGenres={setFavoriteGenres}
-          location={location} /> : <Redirect to="/" />}
+          location={location}
+          userId={userId} /> : <Redirect to="/" />}
+      </Route>
+      <Route>
+        {loggedIn ? <Recommended 
+          events={events} 
+          favoriteArtists={favoriteArtists}
+          favoriteGenres={favoriteGenres} /> : <Redirect to="/" />}
       </Route>
       <Route path="*">
         <Redirect to="/" />

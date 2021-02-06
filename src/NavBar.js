@@ -11,6 +11,7 @@ function NavBar({setLoggedIn}) {
             <Link to="/main">Events</Link>&nbsp;
             <Link to="/favorites">Favorites</Link>&nbsp;
             <Link to="/profile">Profile</Link>&nbsp;
+            <Link to="/recommended">Recommended</Link>&nbsp;
             <Link onClick={handleLogout}>Logout</Link>
         </div>
     )

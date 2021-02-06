@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
-function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFavoriteArtists, setFavoriteGenres, location, setLocation}) {
+function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFavoriteArtists, setFavoriteGenres, location, setLocation, userId}) {
     const [favArtists, setFavArtists] = useState("")
     const [favGenres, setFavGenres] = useState("")
     const [newLocation, setNewLocation] = useState("")
-
-    const userId = 1
 
     const newUser = {
         location: newLocation

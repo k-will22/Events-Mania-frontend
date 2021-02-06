@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function Event({e}) {
+function Event({e, userId}) {
     const [favorited, setFavorited] = useState(false)
     const [favList, setFavList] = useState([])
-    const userId = 1
 
     useEffect(() => {
         fetch("http://localhost:3000/favorite_events")
