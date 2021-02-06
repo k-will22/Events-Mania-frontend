@@ -64,7 +64,7 @@ function App() {
       </Route>
       <Switch>
       <Route path="/main">
-        {loggedIn ? <Main events={events} userId={userId} /> : <Redirect to="/" />}
+        {loggedIn ? <Main events={events} userId={userId} user={user} /> : <Redirect to="/" />}
       </Route>
       <Route path="/show">
         {loggedIn ? <Show /> : <Redirect to="/" />}
@@ -88,7 +88,8 @@ function App() {
         {loggedIn ? <Recommended 
           events={events} 
           favoriteArtists={favoriteArtists}
-          favoriteGenres={favoriteGenres} /> : <Redirect to="/" />}
+          favoriteGenres={favoriteGenres}
+          user={user} /> : <Redirect to="/" />}
       </Route>
       <Route path="*">
         <Redirect to="/" />

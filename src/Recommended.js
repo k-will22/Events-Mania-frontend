@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Recommended({events, favoriteArtists, favoriteGenres}) {
+function Recommended({events, favoriteArtists, favoriteGenres, user}) {
     const filterArray = []
 
-    const favArt = events.filter(e => favoriteArtists.some(a => e.artist.id === a.artist.id))
-    const favGen = events.filter(e => favoriteGenres.some(g => e.genre.id === g.genre.id))
+    const cityEvents = events.filter(e => {
+        return e.location === user.location
+    })
+
+    const favArt = cityEvents.filter(e => favoriteArtists.some(a => e.artist.id === a.artist.id))
+    const favGen = cityEvents.filter(e => favoriteGenres.some(g => e.genre.id === g.genre.id))
 
     favArt.map(artist => {
         return filterArray.push(artist)
