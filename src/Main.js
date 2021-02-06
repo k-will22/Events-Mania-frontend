@@ -1,11 +1,15 @@
 import React, { useState} from "react";
 import Event from "./Event";
 
-function Main({events, userId, user}) {
-    const local = user.location
+function Main({events, userId, location}) {
+    const local = location
     const [searchTerm, setSearchTerm] = useState("")
     const [city, setCity] = useState(local)
-    
+    const filterArray = []
+
+    events.map(e => {
+        return filterArray.push(e)
+    })
     
     function handleSearch(event) {
         setSearchTerm(event.target.value)
@@ -13,14 +17,20 @@ function Main({events, userId, user}) {
 
     function handleCity(event) {
         if (event.target.value == 0) {
-            return setCity(user.location)
+            return setCity(location)
         }
         else {
         return setCity(event.target.value)
         }
     }
 
-    const localEvents = events.filter(e => {
+    const uniqueSet = new Set(filterArray)
+    const uniqueArray = [...uniqueSet]
+
+    const sortedEvents = uniqueArray.sort((a,b) => {
+        return a.date.replace(/\D/g, '') - b.date.replace(/\D/g, '')})
+
+    const localEvents = sortedEvents.filter(e => {
         return e.location === city
     })
 
@@ -30,7 +40,6 @@ function Main({events, userId, user}) {
         e.venue.toLowerCase().includes(searchTerm.toLowerCase())
     })
 
-  
     const eventList = filterEvents.map(e => {
         return <Event e={e} key={e.id} userId={userId} />
     })
@@ -42,7 +51,6 @@ function Main({events, userId, user}) {
             <select onChange={handleCity}>
                 <option value="0">Choose Location</option>
                 <option value="New York">New York</option>
-                <option value="Los Angeles">Los Angeles</option>
                 <option value="Las Vegas">Las Vegas</option>
                 <option value="Miami">Miami</option>
                 <option value="Amsterdam">Amsterdam</option>

@@ -25,13 +25,13 @@ useEffect(() => {
         <h2>{event.tour}</h2>
         <h3>Venue: {event.venue}</h3>
         <h3>Date: {event.date}</h3>
-        <a target="_blank" href={event.band_page}>Artist Site</a>
-        <br></br>
-        <br></br>
-        <a target="_blank" href={event.venue_page}>Venue Site</a>
-        <br></br>
-        <br></br>
-        <a target="_blank" href={event.ticket_purchase_page}>Purchase Tickets</a>
+        {event.band_page === "" ? null : <a target="_blank" rel="noreferrer" href={event.band_page}>Artist Site</a>}
+        {event.band_page === "" ? null : <br></br>}
+        {event.bank_page === "" ? null : <br></br>}
+        {event.venue_page === "" ? null : <a target="_blank" rel="noreferrer" href={event.venue_page}>Venue Site</a>}
+        {event.venue_page === "" ? null : <br></br>}
+        {event.venue_page === "" ? null : <br></br>}
+        {event.ticket_purchase_page === "" ? null : <a target="_blank" rel="noreferrer" href={event.ticket_purchase_page}>Purchase Tickets</a>}
         </div>
         : null }
         </div>

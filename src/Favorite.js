@@ -25,8 +25,11 @@ function Favorite() {
         setFavs(removeFav)
         
     }
+
+    const sortedFavs = favs.sort((a,b) => {
+            return a.event.date.replace(/\D/g, '') - b.event.date.replace(/\D/g, '')})
     
-    const favList = favs.map(f => {
+    const favList = sortedFavs.map(f => {
         return (
         <div key={f.id}>
         <h2>{f.artist.name}</h2>

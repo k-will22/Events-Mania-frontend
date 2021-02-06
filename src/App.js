@@ -8,6 +8,7 @@ import Favorite from './Favorite';
 import Login from './Login';
 import Profile from './Profile';
 import Recommended from './Recommended';
+import AddEvent from './AddEvent'
 
 function App() {
   const [events, setEvents] = useState([])
@@ -24,7 +25,11 @@ function App() {
   useEffect(() => {
   fetch("http://localhost:3000/events")
   .then(response => response.json())
-  .then(setEvents)
+  .then(data => {
+    const sortedEvents = data.sort((a,b) => {
+      return a.date.replace(/\D/g, '') - b.date.replace(/\D/g, '')})
+      setEvents(sortedEvents)
+  })
   }, [])
 
   useEffect(() => {
@@ -64,7 +69,7 @@ function App() {
       </Route>
       <Switch>
       <Route path="/main">
-        {loggedIn ? <Main events={events} userId={userId} user={user} /> : <Redirect to="/" />}
+        {loggedIn ? <Main events={events} userId={userId} location={location} /> : <Redirect to="/" />}
       </Route>
       <Route path="/show">
         {loggedIn ? <Show /> : <Redirect to="/" />}
@@ -82,14 +87,21 @@ function App() {
           setFavoriteArtists={setFavoriteArtists}
           setFavoriteGenres={setFavoriteGenres}
           location={location}
+          setLocation={setLocation}
           userId={userId} /> : <Redirect to="/" />}
       </Route>
-      <Route>
+      <Route path="/recommended">
         {loggedIn ? <Recommended 
           events={events} 
           favoriteArtists={favoriteArtists}
           favoriteGenres={favoriteGenres}
           user={user} /> : <Redirect to="/" />}
+      </Route>
+      <Route path="/add">
+        {loggedIn ? <AddEvent 
+          genres={genres}
+          events={events}
+          setEvents={setEvents} /> : <Redirect to="/" />}
       </Route>
       <Route path="*">
         <Redirect to="/" />

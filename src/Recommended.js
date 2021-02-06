@@ -21,7 +21,10 @@ function Recommended({events, favoriteArtists, favoriteGenres, user}) {
     const uniqueSet = new Set(filterArray)
     const uniqueArray = [...uniqueSet]
 
-    const favArray = uniqueArray.map(e => {
+    const sortedRecos = uniqueArray.sort((a,b) => {
+        return a.date.replace(/\D/g, '') - b.date.replace(/\D/g, '')})
+
+    const favArray = sortedRecos.map(e => {
         return (
             <div key={e.id}>
             <h3>{e.artist.name}</h3>

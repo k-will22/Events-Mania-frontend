@@ -47,8 +47,7 @@ function Event({e, userId}) {
         return (
          <div key={e.id}>
          <h3>{e.artist.name}</h3>
-         <div>{e.tour}</div>
-         <br></br>
+         <h4>{e.tour}</h4>
          <div>Venue: {e.venue}</div>
          <div>Date: {e.date}</div>
          <Link to={`/show/${e.id}`}>Event Page</Link>
