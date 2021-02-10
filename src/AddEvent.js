@@ -86,7 +86,8 @@ function AddEvent({genres, events, setEvents}) {
                         photo: photo,
                         band_page: artistPage,
                         artist_id: newArtistId,
-                        genre_id: genre
+                        genre_id: genre,
+                        verified: false
                     }
 
                     fetch("http://localhost:3000/events", {

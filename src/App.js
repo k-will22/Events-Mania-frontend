@@ -19,8 +19,7 @@ function App() {
   const [favoriteGenres, setFavoriteGenres] = useState([])
   const [location, setLocation] = useState("")
   const [loggedIn, setLoggedIn] = useState(false)
-
-  const userId = 1
+  const [userId, setUserId] = useState("")
 
   useEffect(() => {
   fetch("http://localhost:3000/events")
@@ -64,18 +63,28 @@ function App() {
     <div className="App">
       <h1>EVENTS MANIA</h1>
       <Route path="/">
-      {loggedIn ? <NavBar setLoggedIn={setLoggedIn} /> : 
-      <Login setLoggedIn={setLoggedIn} />}
+      {loggedIn ? <NavBar 
+        setLoggedIn={setLoggedIn} 
+        setUserId={setUserId}
+        setEvents={setEvents} /> : 
+      <Login 
+        setLoggedIn={setLoggedIn} 
+        setUserId={setUserId} />}
       </Route>
       <Switch>
       <Route path="/main">
-        {loggedIn ? <Main events={events} userId={userId} location={location} /> : <Redirect to="/" />}
+        {loggedIn ? <Main 
+          events={events}
+          setEvents={setEvents} 
+          userId={userId} 
+          location={location}
+          user={user} /> : <Redirect to="/" />}
       </Route>
       <Route path="/show">
         {loggedIn ? <Show /> : <Redirect to="/" />}
       </Route>
       <Route path="/favorites">
-        {loggedIn ? <Favorite /> : <Redirect to="/" />}
+        {loggedIn ? <Favorite userId={userId} /> : <Redirect to="/" />}
       </Route>
       <Route path="/profile">
         {loggedIn ?<Profile 
@@ -95,7 +104,7 @@ function App() {
           events={events} 
           favoriteArtists={favoriteArtists}
           favoriteGenres={favoriteGenres}
-          user={user} /> : <Redirect to="/" />}
+          location={location} /> : <Redirect to="/" />}
       </Route>
       <Route path="/add">
         {loggedIn ? <AddEvent 

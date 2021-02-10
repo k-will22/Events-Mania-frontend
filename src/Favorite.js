@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
-function Favorite() {
+function Favorite({userId}) {
     const [favs, setFavs] = useState([])
 
     useEffect(() => {
         fetch("http://localhost:3000/favorite_events")
         .then(response => response.json())
-        .then(setFavs)
+        .then(data => {
+            const filteredFav = data.filter(d => {
+                return d.user.id == userId
+            })
+            setFavs(filteredFav)
+        })
     }, [])
 
     function handleUnfavorite(event) {
@@ -34,6 +39,7 @@ function Favorite() {
         <div key={f.id}>
         <h2>{f.artist.name}</h2>
         <h3>{f.event.tour}</h3>
+        <h4>Location: {f.event.location}</h4>
         <h4>Venue: {f.event.venue}</h4>
         <h4>Date: {f.event.date}</h4>
         <Link to={`/show/${f.event.id}`}>Event Page</Link>

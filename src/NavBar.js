@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function NavBar({setLoggedIn}) {
+function NavBar({setLoggedIn, setUserId}) {
 
     function handleLogout() {
         setLoggedIn(false)
