@@ -87,7 +87,8 @@ function Event({e, userId, user, events, setEvents}) {
     }
 
         return (
-         <div key={e.id}>
+        <div>
+         <div className="event" key={e.id}>
          <h3>{e.artist.name}</h3>
          <h4>{e.tour}</h4>
          <div>Location: {e.location}</div>
@@ -103,7 +104,8 @@ function Event({e, userId, user, events, setEvents}) {
         {verified ? <div style={{color: "green"}}>Verified</div> : <div style={{color: "red"}}>Not Verified</div>}
         <br></br>
         {user.can_verify && !verified ? <button onClick={handleVerify}>Verify Event</button> : null}
-         <hr style={{marginLeft: 150, marginRight: 150}} />
+         <br></br>
+         </div>
          <br></br>
          </div>
         )

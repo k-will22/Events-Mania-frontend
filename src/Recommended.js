@@ -26,7 +26,8 @@ function Recommended({events, favoriteArtists, favoriteGenres, location}) {
 
     const favArray = sortedRecos.map(e => {
         return (
-            <div key={e.id}>
+            <div>
+            <div className="event2" key={e.id}>
             <h3>{e.artist.name}</h3>
             <div>{e.tour}</div>
             <br></br>
@@ -36,7 +37,8 @@ function Recommended({events, favoriteArtists, favoriteGenres, location}) {
             <Link to={`/show/${e.id}`}>Event Page</Link>
             <br></br>
             <br></br>
-            <hr style={{marginLeft: 500, marginRight: 500}} />
+            </div>
+            <br></br>
             </div>
         )
     })

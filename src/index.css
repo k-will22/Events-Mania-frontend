@@ -1,3 +1,8 @@
+html {
+    overflow: hidden;
+    height: 100%;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +10,75 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("concert.jpg");
+  background-blend-mode: multiply; 
+  overflow: auto;
+  height: 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header {
+  padding: 25px;
+  font-size: 50px;
+  background-color: black;
+  color: red;
+  text-shadow: -3px -1px 0 gold;
+  margin-left: 500px;
+  margin-right: 500px;
+  border-radius: 10px;
+  border: double red;
+}
+
+.navbar {
+  background-color: black;
+  padding: 25px;
+  border-top: double red; 
+  border-bottom: double red;
+}
+
+a:link {
+  color: red;
+  font-size: 20px;
+  text-shadow: -1px -1px 0 gold;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:visited {
+  color: red;
+}
+
+.search {
+  background-color: gainsboro;
+  padding: 25px;
+  margin-left: 175px;
+  margin-right: 175px;
+  border-radius: 10px;
+  border: double red;
+}
+
+.event {
+  border: double red;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-radius: 10px;
+  background-color: gainsboro;
+}
+
+.event2 {
+  border: double red;
+  margin-left: 500px;
+  margin-right: 500px;
+  border-radius: 10px;
+  background-color: gainsboro;
+}
+
+h1 {
+  color: red;
+  text-shadow: -2px -1px 0 black;
+}
+

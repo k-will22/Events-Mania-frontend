@@ -3,9 +3,8 @@
     padding: 10px;
     display: grid;
     grid-template-areas: 
-      "header header"
       "nav main";
-    grid-template-columns: 650px 1fr;
+    grid-template-columns: 850px 1fr;
     grid-template-rows: 80px 1fr;
     row-gap: 10px;
     column-gap: 15px;

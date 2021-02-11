@@ -111,7 +111,6 @@ function Main({events, userId, location, user, setEvents}) {
             <Link to={`/show/${e.id}`}>Event Page</Link>
             <br></br>
             <br></br>
-            <hr style={{marginLeft: 200, marginRight: 200}} />
             </div>
         )
     })
@@ -120,6 +119,7 @@ function Main({events, userId, location, user, setEvents}) {
         <div className="one">
           <div>
             <h1>Events</h1>
+            <div className="search">
             <label>Change Location</label>&nbsp;
             <select onChange={handleCity}>
                 <option value="0">Choose Location</option>
@@ -139,11 +139,12 @@ function Main({events, userId, location, user, setEvents}) {
                 autoComplete="off"></input>&nbsp;
             <input type="submit"></input>
             </form>
+            </div>
             <div className="two">{eventList}</div>
             </div>
             <div className="three">
-                <h2>Based On Rencent Searches</h2>
-                {termEvents}
+                <h1>Based On Recent Searches</h1>
+                <div className="event">{termEvents}</div>
             </div>
         </div>
       )

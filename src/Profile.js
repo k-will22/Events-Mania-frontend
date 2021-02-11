@@ -127,7 +127,10 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
 
         return (
             <div>
-            <h1>{user.username}</h1>
+            <h1>Profile</h1>
+            <br></br>
+            <div className="event2">
+            <h3>USERNAME: {user.username}</h3>
             <h3>LOCATION: {location}</h3>
             <form onSubmit={handleLocation}>
             <input 
@@ -137,7 +140,7 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             </input>&nbsp;
             <input type="submit" value="Change Location"></input>
             </form>
-            <br></br>
+            <br></br> 
             <h3>FAVORITE ARTISTS:</h3>
             {fArtists}
             <label>
@@ -158,6 +161,10 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
                 </select>&nbsp;
                 <input type="submit" value="Add Genre" onClick={handleNewGenre}></input>
             </label>
+            <br></br>
+            <br></br>
+            </div>
+            <br></br>
             </div>
         )
 

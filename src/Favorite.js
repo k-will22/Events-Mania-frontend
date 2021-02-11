@@ -36,7 +36,8 @@ function Favorite({userId}) {
     
     const favList = sortedFavs.map(f => {
         return (
-        <div key={f.id}>
+        <div>
+        <div className="event2" key={f.id}>
         <h2>{f.artist.name}</h2>
         <h3>{f.event.tour}</h3>
         <h4>Location: {f.event.location}</h4>
@@ -48,7 +49,8 @@ function Favorite({userId}) {
         <button value={f.id} onClick={handleUnfavorite}>Unfavorite</button>
         <br></br>
         <br></br>
-        <hr style={{marginLeft: 500, marginRight: 500}} />
+        </div>
+        <br></br>
         </div>
         )
     })

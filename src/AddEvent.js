@@ -114,12 +114,14 @@ function AddEvent({genres, events, setEvents}) {
     return (
         <div>
         <h1>Add Event</h1>
+        <div className="event2">
+        <br></br>
         <form onSubmit={handleSubmit}>
             <label>Artist</label>&nbsp;
             <input onChange={handleAritst} type="text"></input>
             <br></br>
             <br></br>
-            <label>Artist Page</label>
+            <label>Artist Page</label>&nbsp;
             <input onChange={handleArtistPage} type="text"></input>
             <br></br>
             <br></br>
@@ -160,6 +162,8 @@ function AddEvent({genres, events, setEvents}) {
             <br></br>
             <input type="submit"></input>
         </form>
+        <br></br>
+        </div>
         </div>
     )
 }

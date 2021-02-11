@@ -1,4 +1,5 @@
 import './App.css';
+import './index.css'
 import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Switch } from "react-router-dom";
 import NavBar from './NavBar'
@@ -61,9 +62,9 @@ function App() {
   
   return (
     <div className="App">
-      <h1>EVENTS MANIA</h1>
+      <h1 className="header">EVENTS MANIA</h1>
       <Route path="/">
-      {loggedIn ? <NavBar 
+      {loggedIn ? <NavBar
         setLoggedIn={setLoggedIn} 
         setUserId={setUserId}
         setEvents={setEvents} /> : 
