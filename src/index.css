@@ -53,28 +53,28 @@ a:visited {
 }
 
 .search {
-  background-color: gainsboro;
+  background-color: goldenrod;
   padding: 25px;
   margin-left: 175px;
   margin-right: 175px;
   border-radius: 10px;
-  border: double red;
+  border: double black;
 }
 
 .event {
-  border: double red;
+  border: double black;
   margin-left: 100px;
   margin-right: 100px;
   border-radius: 10px;
-  background-color: gainsboro;
+  background-color: goldenrod;
 }
 
 .event2 {
-  border: double red;
+  border: double black;
   margin-left: 500px;
   margin-right: 500px;
   border-radius: 10px;
-  background-color: gainsboro;
+  background-color: goldenrod;
 }
 
 h1 {

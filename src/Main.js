@@ -11,6 +11,8 @@ function Main({events, userId, location, user, setEvents}) {
     const [userTerms, setUserTerms] = useState([])
     const filterArray = []
 
+    console.log(term == "")
+
     events.map(e => {
         return filterArray.push(e)
     })
@@ -142,10 +144,10 @@ function Main({events, userId, location, user, setEvents}) {
             </div>
             <div className="two">{eventList}</div>
             </div>
-            <div className="three">
+            {userTerms == "" ? null : <div className="three">
                 <h1>Based On Recent Searches</h1>
                 <div className="event">{termEvents}</div>
-            </div>
+            </div>}
         </div>
       )
 }
