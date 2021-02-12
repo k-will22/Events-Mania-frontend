@@ -2,6 +2,7 @@ import './Main.css';
 import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import Event from "./Event";
+import styled from 'styled-components';
 
 function Main({events, userId, location, user, setEvents}) {
     const local = location
@@ -75,7 +76,7 @@ function Main({events, userId, location, user, setEvents}) {
         return a.date.replace(/\D/g, '') - b.date.replace(/\D/g, '')})
 
     const localEvents = sortedEvents.filter(e => {
-        return e.location === city
+        return e.location.toLowerCase() === city.toLowerCase()
     })
 
     const filterEvents = localEvents.filter(e => {
@@ -95,7 +96,7 @@ function Main({events, userId, location, user, setEvents}) {
     })
 
     const cityEvents = sortedEvents.filter(e => {
-        return e.location === location
+        return e.location.toLowerCase() === location.toLowerCase()
     })
 
     const termFilter = cityEvents.filter(e => userTerms.some(t => e.artist.name.toLowerCase() === t.toLowerCase()))
@@ -103,6 +104,7 @@ function Main({events, userId, location, user, setEvents}) {
     const termEvents = termFilter.map(e => {
         return (
             <div key={e.id}>
+            <div className="event">
             <br></br>
             {e.photo === "" ? null : <img className="img2" src={e.photo} alt="artist image"></img>}
             <h3>{e.artist.name}</h3>
@@ -114,6 +116,8 @@ function Main({events, userId, location, user, setEvents}) {
             <br></br>
             <br></br>
             </div>
+            <br></br>
+            </div>
         )
     })
   
@@ -122,21 +126,21 @@ function Main({events, userId, location, user, setEvents}) {
           <div>
             <h1>Events</h1>
             <div className="search">
-            <label>Change Location</label>&nbsp;
+            <label>&nbsp;&nbsp;<strong>Change Location</strong></label>&nbsp;
             <select onChange={handleCity}>
                 <option value="0">Choose Location</option>
-                <option value="New York">New York</option>
-                <option value="Las Vegas">Las Vegas</option>
-                <option value="Miami">Miami</option>
                 <option value="Amsterdam">Amsterdam</option>
-                <option value="Nashville">Nashville</option>
                 <option value="Austin">Austin</option>
                 <option value="Boston">Boston</option>
+                <option value="Las Vegas">Las Vegas</option>
+                <option value="Miami">Miami</option>
+                <option value="Nashville">Nashville</option>
+                <option value="New York">New York</option>
             </select>
             <br></br>
             <br></br>
             <form onSubmit={handleSearch} >
-            <label>Search by Artist/Genre/Venue</label>&nbsp;
+            <label><strong>Search by Artist/Genre/Venue</strong></label>&nbsp;
             <input
                 onChange={(event) => setTerm(event.target.value)}
                 value={term}
@@ -149,7 +153,7 @@ function Main({events, userId, location, user, setEvents}) {
             </div>
             {userTerms == "" || termEvents.length === 0 ? null : <div className="three">
                 <h1>Based On Recent Searches</h1>
-                <div className="event">{termEvents}</div>
+                <div>{termEvents}</div>
             </div>}
         </div>
       )

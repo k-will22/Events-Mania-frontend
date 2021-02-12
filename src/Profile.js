@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFavoriteArtists, setFavoriteGenres, location, setLocation, userId}) {
     const [favArtists, setFavArtists] = useState("")
@@ -10,11 +11,11 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
     }
     
     const fArtists = favoriteArtists.map(a => {
-       return <h3 key={a.id}>{a.artist.name} <button className="red" value={a.id} onClick={handleRemoveArtist}>Remove</button></h3>
+       return <h4 className="align1" key={a.id}>{a.artist.name} <button className="red" value={a.id} onClick={handleRemoveArtist}>Remove</button></h4>
     })
 
     const fGenres = favoriteGenres.map(g => {
-        return <h3 key={g.id}>{g.genre.name} <button className="red" value={g.id} onClick={handleRemoveGenre}>Remove</button></h3>
+        return <h4 className="align2" key={g.id}>{g.genre.name} <button className="red" value={g.id} onClick={handleRemoveGenre}>Remove</button></h4>
      })
 
     const newArtist = {
@@ -121,15 +122,55 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             setNewLocation("")
     }
 
-    const artistList = artists.map(a => <option key={a.id} value={a.id}>{a.name}</option>)
+    const sortedArtists = artists.sort((a,b) => {
+        return a.name.localeCompare(b.name);
+    })
 
-    const genreList = genres.map(g => <option key={g.id} value={g.id}>{g.name}</option>)
+    const sortedGenres = genres.sort((a,b) => {
+        return a.name.localeCompare(b.name);
+    })
+
+    const artistList = sortedArtists.map(a => <option key={a.id} value={a.id}>{a.name}</option>)
+
+    const genreList = sortedGenres.map(g => <option key={g.id} value={g.id}>{g.name}</option>)
+
+    const Wrapper = styled.div`
+    form {
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      
+      label,
+      input,
+      select {
+        display: inline-block;
+      }
+      
+      label {
+        width: 50%; 
+      }
+
+      select {
+        width: 50%;
+      }
+      
+      label+input {
+        width: 32%;
+        margin: 0 30% 0 4%;
+      }
+
+      label+select {
+        width: 32%;
+        margin: 0 30% 0 4%;
+      }
+    `;
 
         return (
             <div>
             <h1>Profile</h1>
             <br></br>
-            <div className="event2">
+            <Wrapper className="event2">
             <h2>{user.username}</h2>
             <h3 className="underline">Location:</h3>
             <h3>{location}</h3>
@@ -166,11 +207,10 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             </label>
             <br></br>
             <br></br>
-            </div>
+            </Wrapper>
             <br></br>
             </div>
         )
-
 }
 
 export default Profile

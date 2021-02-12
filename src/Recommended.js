@@ -5,7 +5,7 @@ function Recommended({events, favoriteArtists, favoriteGenres, location}) {
     const filterArray = []
 
     const cityEvents = events.filter(e => {
-        return e.location === location
+        return e.location.toLowerCase() === location.toLowerCase()
     })
 
     const favArt = cityEvents.filter(e => favoriteArtists.some(a => e.artist.id === a.artist.id))

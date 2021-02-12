@@ -52,18 +52,23 @@ a:visited {
   color: red;
 }
 
+a:hover {
+  color: lightcoral;
+}
+
 .search {
   background-color: goldenrod;
   padding: 25px;
   margin-left: 175px;
   margin-right: 175px;
   border-radius: 10px;
-  border: double black;
-  opacity: 0.9;
+  border: ridge dimgray;
+  opacity: 0.9; 
+  width: 55%;
 }
 
 .event {
-  border: double black;
+  border: ridge dimgray;
   margin-left: 100px;
   margin-right: 100px;
   border-radius: 10px;
@@ -72,18 +77,27 @@ a:visited {
 }
 
 .event2 {
-  border: double black;
-  margin-left: 500px;
-  margin-right: 500px;
+  border: ridge dimgray;
+  margin-left: 450px;
+  margin-right: 450px;
   border-radius: 10px;
   background-color: goldenrod;
   opacity: 0.9;
 }
 
 .event3 {
-  border: double black;
+  border: ridge dimgray;
   margin-left: 350px;
   margin-right: 350px;
+  border-radius: 10px;
+  background-color: goldenrod;
+  opacity: 0.9;
+}
+
+.event4 {
+  border: ridge dimgray;
+  margin-left: 550px;
+  margin-right: 550px;
   border-radius: 10px;
   background-color: goldenrod;
   opacity: 0.9;
@@ -98,12 +112,16 @@ h1 {
   width:  250px;
   height: 250px;
   object-fit: cover;
+  border-radius: 10px;
+  border: double dimgray;
 }
 
 .img2{
   width:  150px;
   height: 150px;
   object-fit: cover;
+  border-radius: 10px;
+  border: double dimgray;
 }
 
 .underline {
@@ -115,9 +133,17 @@ input[type=submit] {
   border-radius: 10px;
 }
 
+input[type=submit]:hover {
+  background-color: silver;
+}
+
 button {
   background-color: dimgray;
   border-radius:  10px;
+}
+
+button:hover {
+  background-color: silver;
 }
 
 .red {
@@ -125,3 +151,20 @@ button {
   border-radius:  10px;
 }
 
+.red:hover {
+  background-color: lightcoral;
+}
+
+*:focus {
+  outline:none
+}
+
+.align1 {
+  text-align: right;
+  margin-right: 170px;
+}
+
+.align2 {
+  text-align: right;
+  margin-right: 210px;
+}

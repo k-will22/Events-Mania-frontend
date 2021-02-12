@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
+import styled from 'styled-components';
 
 function Login({setLoggedIn, setUserId}) {
     const [username, setUsername] = useState("")
@@ -85,6 +86,30 @@ function Login({setLoggedIn, setUserId}) {
         setCreate(true)
     }
     
+    const Wrapper = styled.div`
+    form {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      
+      label,
+      input {
+        display: inline-block;
+      }
+      
+      label {
+        width: 30%;
+        text-align: right;
+      }
+      
+      label+input {
+        width: 45%;
+        margin: 0 15% 0 4%;
+      }
+
+
+    `;
 
     return (
         <div>
@@ -104,6 +129,8 @@ function Login({setLoggedIn, setUserId}) {
         <div style={{color: "red"}}>{createError}</div>
         <br></br>
         {create ?
+        <Wrapper className="event4">
+        <br></br>
         <form onSubmit={handleSubmit}>
             <label>Username</label>&nbsp;
             <input 
@@ -127,7 +154,9 @@ function Login({setLoggedIn, setUserId}) {
             <br></br>
             <br></br>
             <input type="submit"></input>
-        </form> : <button onClick={handleCreate}>Create New Account</button>}
+        </form>
+        <br></br>
+        </Wrapper> : <button onClick={handleCreate}>Create New Account</button>}
         </div>
     )
 }
