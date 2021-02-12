@@ -10,11 +10,11 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
     }
     
     const fArtists = favoriteArtists.map(a => {
-       return <h3 key={a.id}>{a.artist.name} <button value={a.id} onClick={handleRemoveArtist}>Remove</button></h3>
+       return <h3 key={a.id}>{a.artist.name} <button className="red" value={a.id} onClick={handleRemoveArtist}>Remove</button></h3>
     })
 
     const fGenres = favoriteGenres.map(g => {
-        return <h3 key={g.id}>{g.genre.name} <button value={g.id} onClick={handleRemoveGenre}>Remove</button></h3>
+        return <h3 key={g.id}>{g.genre.name} <button className="red" value={g.id} onClick={handleRemoveGenre}>Remove</button></h3>
      })
 
     const newArtist = {
@@ -130,8 +130,9 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             <h1>Profile</h1>
             <br></br>
             <div className="event2">
-            <h3>USERNAME: {user.username}</h3>
-            <h3>LOCATION: {location}</h3>
+            <h2>{user.username}</h2>
+            <h3 className="underline">Location:</h3>
+            <h3>{location}</h3>
             <form onSubmit={handleLocation}>
             <input 
                 type="text" 
@@ -140,8 +141,9 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             </input>&nbsp;
             <input type="submit" value="Change Location"></input>
             </form>
-            <br></br> 
-            <h3>FAVORITE ARTISTS:</h3>
+            <br></br>
+            <br></br>
+            <h3 className="underline">Favorite Artists:</h3>
             {fArtists}
             <label>
                 <select onChange={handleSetArtist}>
@@ -152,7 +154,8 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
             </label>
             <br></br>
             <br></br>
-            <h3>FAVORITE GENRES:</h3>
+            <br></br>
+            <h3 className="underline">Favorite Genres:</h3>
             {fGenres}
             <label>
                 <select onChange={handleSetGenre}>

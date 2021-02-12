@@ -38,6 +38,8 @@ function Favorite({userId}) {
         return (
         <div>
         <div className="event2" key={f.id}>
+        <br></br>
+        {f.event.photo == "" ? null : <img className="img1" src={f.event.photo} alt="artist image"></img>}
         <h2>{f.artist.name}</h2>
         <h3>{f.event.tour}</h3>
         <h4>Location: {f.event.location}</h4>
@@ -46,7 +48,7 @@ function Favorite({userId}) {
         <Link to={`/show/${f.event.id}`}>Event Page</Link>
         <br></br>
         <br></br>
-        <button value={f.id} onClick={handleUnfavorite}>Unfavorite</button>
+        <button className="red" value={f.id} onClick={handleUnfavorite}>Unfavorite</button>
         <br></br>
         <br></br>
         </div>

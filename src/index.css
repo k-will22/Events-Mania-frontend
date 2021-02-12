@@ -26,7 +26,7 @@ code {
   font-size: 50px;
   background-color: black;
   color: red;
-  text-shadow: -3px -1px 0 gold;
+  text-shadow: -2px -1px 0 gold;
   margin-left: 500px;
   margin-right: 500px;
   border-radius: 10px;
@@ -43,7 +43,7 @@ code {
 a:link {
   color: red;
   font-size: 20px;
-  text-shadow: -1px -1px 0 gold;
+  text-shadow: -0.5px -1px 0 gold;
   font-weight: bold;
   text-decoration: none;
 }
@@ -59,6 +59,7 @@ a:visited {
   margin-right: 175px;
   border-radius: 10px;
   border: double black;
+  opacity: 0.9;
 }
 
 .event {
@@ -67,6 +68,7 @@ a:visited {
   margin-right: 100px;
   border-radius: 10px;
   background-color: goldenrod;
+  opacity: 0.9;
 }
 
 .event2 {
@@ -75,10 +77,51 @@ a:visited {
   margin-right: 500px;
   border-radius: 10px;
   background-color: goldenrod;
+  opacity: 0.9;
+}
+
+.event3 {
+  border: double black;
+  margin-left: 350px;
+  margin-right: 350px;
+  border-radius: 10px;
+  background-color: goldenrod;
+  opacity: 0.9;
 }
 
 h1 {
   color: red;
   text-shadow: -2px -1px 0 black;
+}
+
+.img1 {
+  width:  250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.img2{
+  width:  150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+input[type=submit] {
+  background-color: dimgray;
+  border-radius: 10px;
+}
+
+button {
+  background-color: dimgray;
+  border-radius:  10px;
+}
+
+.red {
+  background-color: red;
+  border-radius:  10px;
 }
 

@@ -89,6 +89,8 @@ function Event({e, userId, user, events, setEvents}) {
         return (
         <div>
          <div className="event" key={e.id}>
+         <br></br>
+         {e.photo === "" ? null : <img className="img1" src={e.photo} alt="artist image"></img>}
          <h3>{e.artist.name}</h3>
          <h4>{e.tour}</h4>
          <div>Location: {e.location}</div>

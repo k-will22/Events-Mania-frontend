@@ -28,6 +28,8 @@ function Recommended({events, favoriteArtists, favoriteGenres, location}) {
         return (
             <div>
             <div className="event2" key={e.id}>
+            <br></br>
+            {e.photo === "" ? null : <img className="img1" src={e.photo} alt="artist image"></img>}
             <h3>{e.artist.name}</h3>
             <div>{e.tour}</div>
             <br></br>

@@ -19,8 +19,11 @@ useEffect(() => {
 
     return (
         <div>
+        <br></br>
         {loaded ?
-        <div>
+        <div className="event3">
+        <br></br>
+        {event.photo === "" ? null : <img className="img1" src={event.photo} alt="artist image"></img>}
         <h1>{event.artist.name}</h1>
         <h2>{event.tour}</h2>
         <h3>Venue: {event.venue}</h3>
@@ -32,8 +35,11 @@ useEffect(() => {
         {event.venue_page === "" ? null : <br></br>}
         {event.venue_page === "" ? null : <br></br>}
         {event.ticket_purchase_page === "" ? null : <a target="_blank" rel="noreferrer" href={event.ticket_purchase_page}>Purchase Tickets</a>}
+        <br></br>
+        <br></br>
         </div>
         : null }
+        <br></br>
         </div>
     )
 }

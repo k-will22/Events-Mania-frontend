@@ -11,8 +11,6 @@ function Main({events, userId, location, user, setEvents}) {
     const [userTerms, setUserTerms] = useState([])
     const filterArray = []
 
-    console.log(term == "")
-
     events.map(e => {
         return filterArray.push(e)
     })
@@ -105,6 +103,8 @@ function Main({events, userId, location, user, setEvents}) {
     const termEvents = termFilter.map(e => {
         return (
             <div key={e.id}>
+            <br></br>
+            {e.photo === "" ? null : <img className="img2" src={e.photo} alt="artist image"></img>}
             <h3>{e.artist.name}</h3>
             <h4>{e.tour}</h4>
             <div>Location: {e.location}</div>
@@ -129,6 +129,9 @@ function Main({events, userId, location, user, setEvents}) {
                 <option value="Las Vegas">Las Vegas</option>
                 <option value="Miami">Miami</option>
                 <option value="Amsterdam">Amsterdam</option>
+                <option value="Nashville">Nashville</option>
+                <option value="Austin">Austin</option>
+                <option value="Boston">Boston</option>
             </select>
             <br></br>
             <br></br>
@@ -144,7 +147,7 @@ function Main({events, userId, location, user, setEvents}) {
             </div>
             <div className="two">{eventList}</div>
             </div>
-            {userTerms == "" ? null : <div className="three">
+            {userTerms == "" || termEvents.length === 0 ? null : <div className="three">
                 <h1>Based On Recent Searches</h1>
                 <div className="event">{termEvents}</div>
             </div>}
