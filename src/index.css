@@ -156,7 +156,7 @@ button:hover {
 }
 
 *:focus {
-  outline:none
+  outline: none;
 }
 
 .align1 {

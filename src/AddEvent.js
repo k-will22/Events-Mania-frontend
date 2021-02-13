@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
-import styled from 'styled-components';
 
 function AddEvent({genres, events, setEvents}) {
     const [artist, setArtist] = useState("")
@@ -112,93 +111,71 @@ function AddEvent({genres, events, setEvents}) {
         return <option key={g.id} value={g.id}>{g.name}</option>
     })
 
-    const Wrapper = styled.div`
-    form {
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px;
-      }
-      
-      label,
-      input,
-      select {
-        display: inline-block;
-      }
-      
-      label {
-        width: 30%;
-        text-align: right;
-      }
-      
-      label+input {
-        width: 32%;
-        margin: 0 30% 0 4%;
-      }
 
-      label+select {
-        width: 33%;
-        margin: 0 30% 0 4%;
-      }
-      
-      
-      input+input {
-        float: right;
-      }
-    `;
 
     return (
         <div>
         <h1>Add Event</h1>
-        <Wrapper className="event2">
+        <div className="event2">
         <br></br>
         <form onSubmit={handleSubmit}>
-            <label>Artist</label>&nbsp;
-            <input onChange={handleAritst} type="text"></input>
+            <label>Artist</label>
+            <br></br>
+            <input className="add" onChange={handleAritst} type="text"></input>
             <br></br>
             <br></br>
-            <label>Artist Page</label>&nbsp;
-            <input onChange={handleArtistPage} type="text"></input>
+            <label>Artist Page</label>
+            <br></br>
+            <input className="add" onChange={handleArtistPage} type="text"></input>
             <br></br>
             <br></br>
-            <label>Genre</label>&nbsp;
-            <select onChange={handleGenre}>
+            <label>Genre</label>
+            <br></br>
+            <select className="add" onChange={handleGenre}>
                 <option value="0">ChooseGenre</option>
                 {genreList}
             </select>
             <br></br>
             <br></br>
-            <label>Tour</label>&nbsp;
-            <input onChange={handleTour} type="text"></input>
+            <label>Tour</label>
+            <br></br>
+            <input className="add" onChange={handleTour} type="text"></input>
             <br></br>
             <br></br>
-            <label>Location</label>&nbsp;
-            <input onChange={handleLocation} type="text"></input>
+            <label>Location</label>
+            <br></br>
+            <input className="add" onChange={handleLocation} type="text"></input>
             <br></br>
             <br></br>
-            <label>Venue</label>&nbsp;
-            <input onChange={handleVenue} type="text"></input>
+            <label>Venue</label>
+            <br></br>
+            <input className="add" onChange={handleVenue} type="text"></input>
             <br></br>
             <br></br>
-            <label>Venue Page</label>&nbsp;
-            <input onChange={handleVenuePage} type="text"></input>
+            <label>Venue Page</label>
+            <br></br>
+            <input className="add" onChange={handleVenuePage} type="text"></input>
             <br></br>
             <br></br>
-            <label>Date</label>&nbsp;
-            <input onChange={handleDate} type="date"></input>
+            <label>Date</label>
+            <br></br>
+            <input className="add" onChange={handleDate} type="date"></input>
             <br></br>
             <br></br>
-            <label>Ticket Purchase Page</label>&nbsp;
-            <input onChange={handleTicketPage} type="text"></input>
+            <label>Ticket Purchase Page</label>
+            <br></br>
+            <input className="add" onChange={handleTicketPage} type="text"></input>
             <br></br>
             <br></br>
-            <label>Photo</label>&nbsp;
-            <input onChange={handlePhoto} type="text"></input>
+            <label>Photo</label>
+            <br></br>
+            <input className="add" onChange={handlePhoto} type="text"></input>
             <br></br>
             <br></br>
             <input type="submit"></input>
         </form>
         <br></br>
-        </Wrapper>
+        </div>
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
-import styled from 'styled-components';
 
 function Login({setLoggedIn, setUserId}) {
     const [username, setUsername] = useState("")
@@ -85,31 +84,6 @@ function Login({setLoggedIn, setUserId}) {
     function handleCreate() {
         setCreate(true)
     }
-    
-    const Wrapper = styled.div`
-    form {
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px;
-      }
-      
-      label,
-      input {
-        display: inline-block;
-      }
-      
-      label {
-        width: 30%;
-        text-align: right;
-      }
-      
-      label+input {
-        width: 45%;
-        margin: 0 15% 0 4%;
-      }
-
-
-    `;
 
     return (
         <div>
@@ -129,7 +103,7 @@ function Login({setLoggedIn, setUserId}) {
         <div style={{color: "red"}}>{createError}</div>
         <br></br>
         {create ?
-        <Wrapper className="event4">
+        <div className="event4">
         <br></br>
         <form onSubmit={handleSubmit}>
             <label>Username</label>&nbsp;
@@ -139,14 +113,14 @@ function Login({setLoggedIn, setUserId}) {
                 type="text"></input>
             <br></br>
             <br></br>
-            <label>Password</label>&nbsp;
-            <input 
+            &nbsp;<label>Password</label>&nbsp;
+            <input
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 type="password"></input>
             <br></br>
             <br></br>
-            <label>Location</label>&nbsp;
+            &nbsp; &nbsp;<label>Location</label>&nbsp;
             <input 
                 value={location}
                 onChange={(event) => setLocation(event.target.value)}
@@ -156,7 +130,7 @@ function Login({setLoggedIn, setUserId}) {
             <input type="submit"></input>
         </form>
         <br></br>
-        </Wrapper> : <button onClick={handleCreate}>Create New Account</button>}
+        </div> : <button onClick={handleCreate}>Create New Account</button>}
         </div>
     )
 }

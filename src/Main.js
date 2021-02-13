@@ -2,7 +2,6 @@ import './Main.css';
 import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import Event from "./Event";
-import styled from 'styled-components';
 
 function Main({events, userId, location, user, setEvents}) {
     const local = location

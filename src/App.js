@@ -22,6 +22,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [userId, setUserId] = useState("")
 
+  console.log(favoriteArtists)
+
   useEffect(() => {
   fetch("http://localhost:3000/events")
   .then(response => response.json())
@@ -51,13 +53,10 @@ function App() {
       }, [userId])
 
       useEffect(() => {
-        fetch(`http://localhost:3000/users/${userId}`)
-        .then(response => response.json())
-       
         setFavoriteArtists(user.favorite_artists)
         setFavoriteGenres(user.favorite_genres)
         setLocation(user.location)
-        }, [userId, user])
+        }, [user])
 
   
   return (
