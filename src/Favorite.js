@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
+import Moment from 'react-moment';
 
 function Favorite({userId}) {
     const [favs, setFavs] = useState([])
@@ -44,11 +45,11 @@ function Favorite({userId}) {
         <h3>{f.event.tour}</h3>
         <h4>Location: {f.event.location}</h4>
         <h4>Venue: {f.event.venue}</h4>
-        <h4>Date: {f.event.date}</h4>
+        <h4><Moment format="ddd MMM DD, YYYY">{f.event.date}</Moment></h4>
         <Link to={`/show/${f.event.id}`}>Event Page</Link>
         <br></br>
         <br></br>
-        <button className="red" value={f.id} onClick={handleUnfavorite}>Unfavorite</button>
+        <button className="red" value={f.id} onClick={handleUnfavorite}>Remove</button>
         <br></br>
         <br></br>
         </div>

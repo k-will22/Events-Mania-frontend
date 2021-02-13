@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Moment from 'react-moment';
 
 function Show() {
 const [event, setEvent] = useState([])
@@ -27,7 +28,7 @@ useEffect(() => {
         <h1>{event.artist.name}</h1>
         <h2>{event.tour}</h2>
         <h3>Venue: {event.venue}</h3>
-        <h3>Date: {event.date}</h3>
+        <h3><Moment format="ddd MMM DD, YYYY">{event.date}</Moment></h3>
         {event.band_page === "" ? null : <a target="_blank" rel="noreferrer" href={event.band_page}>Artist Site</a>}
         {event.band_page === "" ? null : <br></br>}
         {event.bank_page === "" ? null : <br></br>}

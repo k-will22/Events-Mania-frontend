@@ -2,6 +2,7 @@ import './Main.css';
 import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import Event from "./Event";
+import Moment from 'react-moment';
 
 function Main({events, userId, location, user, setEvents}) {
     const local = location
@@ -110,7 +111,7 @@ function Main({events, userId, location, user, setEvents}) {
             <h4>{e.tour}</h4>
             <div>Location: {e.location}</div>
             <div>Venue: {e.venue}</div>
-            <div>Date: {e.date}</div>
+            <div><Moment format="ddd MMM DD, YYYY">{e.date}</Moment></div>
             <Link to={`/show/${e.id}`}>Event Page</Link>
             <br></br>
             <br></br>

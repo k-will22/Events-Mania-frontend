@@ -121,55 +121,55 @@ function AddEvent({genres, events, setEvents}) {
         <form onSubmit={handleSubmit}>
             <label>Artist</label>
             <br></br>
-            <input className="add" onChange={handleAritst} type="text"></input>
+            <input onChange={handleAritst} type="text"></input>
             <br></br>
             <br></br>
             <label>Artist Page</label>
             <br></br>
-            <input className="add" onChange={handleArtistPage} type="text"></input>
+            <input onChange={handleArtistPage} type="text"></input>
             <br></br>
             <br></br>
             <label>Genre</label>
             <br></br>
-            <select className="add" onChange={handleGenre}>
-                <option value="0">ChooseGenre</option>
+            <select onChange={handleGenre}>
+                <option value="0">Choose Genre</option>
                 {genreList}
             </select>
             <br></br>
             <br></br>
             <label>Tour</label>
             <br></br>
-            <input className="add" onChange={handleTour} type="text"></input>
+            <input onChange={handleTour} type="text"></input>
             <br></br>
             <br></br>
             <label>Location</label>
             <br></br>
-            <input className="add" onChange={handleLocation} type="text"></input>
+            <input onChange={handleLocation} type="text"></input>
             <br></br>
             <br></br>
             <label>Venue</label>
             <br></br>
-            <input className="add" onChange={handleVenue} type="text"></input>
+            <input onChange={handleVenue} type="text"></input>
             <br></br>
             <br></br>
             <label>Venue Page</label>
             <br></br>
-            <input className="add" onChange={handleVenuePage} type="text"></input>
+            <input onChange={handleVenuePage} type="text"></input>
             <br></br>
             <br></br>
             <label>Date</label>
             <br></br>
-            <input className="add" onChange={handleDate} type="date"></input>
+            <input onChange={handleDate} type="date"></input>
             <br></br>
             <br></br>
             <label>Ticket Purchase Page</label>
             <br></br>
-            <input className="add" onChange={handleTicketPage} type="text"></input>
+            <input onChange={handleTicketPage} type="text"></input>
             <br></br>
             <br></br>
             <label>Photo</label>
             <br></br>
-            <input className="add" onChange={handlePhoto} type="text"></input>
+            <input onChange={handlePhoto} type="text"></input>
             <br></br>
             <br></br>
             <input type="submit"></input>

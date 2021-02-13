@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Moment from 'react-moment';
 
 function Event({e, userId, user, events, setEvents}) {
     const [favorited, setFavorited] = useState(false)
@@ -16,7 +17,7 @@ function Event({e, userId, user, events, setEvents}) {
         if (e.verified) {
             return setVerified(true)
         }
-    }, e)
+    }, [e])
 
     useEffect(() => {
         favList.map(fav => {
@@ -95,7 +96,7 @@ function Event({e, userId, user, events, setEvents}) {
          <h4>{e.tour}</h4>
          <div>Location: {e.location}</div>
          <div>Venue: {e.venue}</div>
-         <div>Date: {e.date}</div>
+         <div><Moment format="ddd MMM DD, YYYY">{e.date}</Moment></div>
          <Link to={`/show/${e.id}`}>Event Page</Link>
          <br></br>
          <br></br>

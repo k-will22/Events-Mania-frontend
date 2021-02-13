@@ -126,11 +126,11 @@ function Profile({user, artists, genres, favoriteArtists, favoriteGenres, setFav
     }
 
     const fArtists = favoriteArtists.map(a => {
-        return <h4 className="align1" key={a.id}>{a.artist.name} <button className="red" value={a.id} onClick={handleRemoveArtist}>Remove</button></h4>
+        return <h4 key={a.id}>{a.artist.name} <button className="red button2" value={a.id} onClick={handleRemoveArtist}>X</button></h4>
      })
  
      const fGenres = favoriteGenres.map(g => {
-         return <h4 className="align2" key={g.id}>{g.genre.name} <button className="red" value={g.id} onClick={handleRemoveGenre}>Remove</button></h4>
+         return <h4 key={g.id}>{g.genre.name} <button className="red button2" value={g.id} onClick={handleRemoveGenre}>X</button></h4>
       })
 
     const sortedArtists = artists.sort((a,b) => {

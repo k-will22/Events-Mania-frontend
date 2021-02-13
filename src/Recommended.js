@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Moment from 'react-moment';
 
 function Recommended({events, favoriteArtists, favoriteGenres, location}) {
     const filterArray = []
@@ -31,11 +32,10 @@ function Recommended({events, favoriteArtists, favoriteGenres, location}) {
             <br></br>
             {e.photo === "" ? null : <img className="img1" src={e.photo} alt="artist image"></img>}
             <h3>{e.artist.name}</h3>
-            <div>{e.tour}</div>
-            <br></br>
+            <h4>{e.tour}</h4>
             <div>Location: {e.location}</div>
             <div>Venue: {e.venue}</div>
-            <div>Date: {e.date}</div>
+            <div><Moment format="ddd MMM DD, YYYY">{e.date}</Moment></div>
             <Link to={`/show/${e.id}`}>Event Page</Link>
             <br></br>
             <br></br>
