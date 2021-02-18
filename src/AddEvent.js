@@ -119,17 +119,17 @@ function AddEvent({genres, events, setEvents}) {
         <div className="event2">
         <br></br>
         <form onSubmit={handleSubmit}>
-            <label>Artist</label>
+            <label><strong>Artist</strong></label>
             <br></br>
             <input onChange={handleAritst} type="text"></input>
             <br></br>
             <br></br>
-            <label>Artist Page</label>
+            <label><strong>Artist Page (optional)</strong></label>
             <br></br>
             <input onChange={handleArtistPage} type="text"></input>
             <br></br>
             <br></br>
-            <label>Genre</label>
+            <label><strong>Genre</strong></label>
             <br></br>
             <select onChange={handleGenre}>
                 <option value="0">Choose Genre</option>
@@ -137,37 +137,37 @@ function AddEvent({genres, events, setEvents}) {
             </select>
             <br></br>
             <br></br>
-            <label>Tour</label>
+            <label><strong>Tour</strong></label>
             <br></br>
             <input onChange={handleTour} type="text"></input>
             <br></br>
             <br></br>
-            <label>Location</label>
+            <label><strong>Location</strong></label>
             <br></br>
             <input onChange={handleLocation} type="text"></input>
             <br></br>
             <br></br>
-            <label>Venue</label>
+            <label><strong>Venue</strong></label>
             <br></br>
             <input onChange={handleVenue} type="text"></input>
             <br></br>
             <br></br>
-            <label>Venue Page</label>
+            <label><strong>Venue Page (optional)</strong></label>
             <br></br>
             <input onChange={handleVenuePage} type="text"></input>
             <br></br>
             <br></br>
-            <label>Date</label>
+            <label><strong>Date</strong></label>
             <br></br>
             <input onChange={handleDate} type="date"></input>
             <br></br>
             <br></br>
-            <label>Ticket Purchase Page</label>
+            <label><strong>Ticket Purchase Page (optional)</strong></label>
             <br></br>
             <input onChange={handleTicketPage} type="text"></input>
             <br></br>
             <br></br>
-            <label>Photo</label>
+            <label><strong>Photo (optional)</strong></label>
             <br></br>
             <input onChange={handlePhoto} type="text"></input>
             <br></br>

@@ -91,9 +91,9 @@ function Login({setLoggedIn, setUserId}) {
         <form onSubmit={handleLogin}>
         <div style={{color: "red"}}>{loginError}</div>
         <br></br>
-        <label>Username</label>&nbsp;
+        <label><strong>Username</strong></label>&nbsp;
         <input type="text" onChange={(event) => setLoginName(event.target.value)}></input>&nbsp; &nbsp;
-        <label>Password</label>&nbsp;
+        <label><strong>Password</strong></label>&nbsp;
         <input type="password" onChange={(event) => setLoginPassword(event.target.value)}></input>&nbsp;
         <input type="submit" value="Login"></input>
         </form>
@@ -106,21 +106,21 @@ function Login({setLoggedIn, setUserId}) {
         <div className="event4">
         <br></br>
         <form onSubmit={handleSubmit}>
-            <label>Username</label>&nbsp;
+            <label><strong>Username</strong></label>&nbsp;
             <input 
                 value={username} 
                 onChange={(event) => setUsername(event.target.value)} 
                 type="text"></input>
             <br></br>
             <br></br>
-            &nbsp;<label>Password</label>&nbsp;
+            &nbsp;<label><strong>Password</strong></label>&nbsp;
             <input
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 type="password"></input>
             <br></br>
             <br></br>
-            &nbsp; &nbsp;<label>Location</label>&nbsp;
+            &nbsp; &nbsp;<label><strong>Location</strong></label>&nbsp;
             <input 
                 value={location}
                 onChange={(event) => setLocation(event.target.value)}

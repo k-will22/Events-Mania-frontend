@@ -108,6 +108,7 @@ function Event({e, userId, user, events, setEvents}) {
         <br></br>
         {user.can_verify && !verified ? <button onClick={handleVerify}>Verify Event</button> : null}
          <br></br>
+         <br></br>
          </div>
          <br></br>
          </div>

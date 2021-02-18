@@ -27,8 +27,8 @@ code {
   background-color: black;
   color: red;
   text-shadow: -2px -1px 0 gold;
-  margin-left: 500px;
-  margin-right: 500px;
+  margin-left: 35%;
+  margin-right: 35%;
   border-radius: 10px;
   border: double red;
 }
@@ -69,8 +69,8 @@ a:hover {
 
 .event {
   border: ridge dimgray;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
   border-radius: 10px;
   background-color: goldenrod;
   opacity: 0.9;
@@ -78,8 +78,8 @@ a:hover {
 
 .event2 {
   border: ridge dimgray;
-  margin-left: 450px;
-  margin-right: 450px;
+  margin-left: 32%;
+  margin-right: 32%;
   border-radius: 10px;
   background-color: goldenrod;
   opacity: 0.9;
@@ -87,8 +87,8 @@ a:hover {
 
 .event3 {
   border: ridge dimgray;
-  margin-left: 350px;
-  margin-right: 350px;
+  margin-left: 25%;
+  margin-right: 25%;
   border-radius: 10px;
   background-color: goldenrod;
   opacity: 0.9;
@@ -96,8 +96,8 @@ a:hover {
 
 .event4 {
   border: ridge dimgray;
-  margin-left: 550px;
-  margin-right: 550px;
+  margin-left: 40%;
+  margin-right: 40%;
   border-radius: 10px;
   background-color: goldenrod;
   opacity: 0.9;
